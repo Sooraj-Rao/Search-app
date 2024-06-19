@@ -60,7 +60,7 @@ const App: React.FC = () => {
           <input
             type="text"
             placeholder="Search for books, phone..."
-            className="dark:bg-slate-500 border-2 border-l-slate-300 h-10 px-3 rounded"
+            className=" border-2 border-l-slate-300 h-10 px-3 rounded"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -75,14 +75,14 @@ const App: React.FC = () => {
               .map((_, i) => (
                 <div
                   key={i}
-                  className="shadow-lg animate-pulse bg-slate-300 h-96 w-60 p-4 m-4 rounded dark:bg-slate-500"
+                  className="shadow-lg animate-pulse  bg-slate-400 h-96 w-60 p-4 m-4 rounded "
                 ></div>
               ))
           : searchResults?.map((result) => {
               const { _id, imageUrl, name, stock, price, category } = result;
               return (
                 <li key={_id}>
-                  <div className="shadow-lg h-96 w-60 p-4 m-4 rounded dark:bg-slate-700">
+                  <div className="shadow-lg h-96 w-60 p-4 m-4 rounded ">
                     <img
                       className="h-2/3 w-full object-contain mb-2"
                       src={imageUrl}
@@ -91,7 +91,7 @@ const App: React.FC = () => {
                     <h1>
                       {name.length > 22 ? name.slice(0, 22) + "..." : name}
                     </h1>
-                    <h5 className="text-sm dark:bg-gray-800 bg-gray-200 w-fit px-2 rounded-lg mt-1">
+                    <h5 className="text-sm  bg-gray-200 w-fit px-2 rounded-lg mt-1">
                       {category}
                     </h5>
                     <h5 className="mt-1 text-xl font-bold">₹ {price}</h5>
