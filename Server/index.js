@@ -12,6 +12,16 @@ app.use(cors());
 app.use(express.json());
 connectDB();
 
+app.get("/", (req, res) => {
+  res.send(`
+  <h1>Please click below link to Application</h1>
+  <a href="https://sooraj-search-app.vercel.app/" style="margin:0px 4rem">
+  <button>
+  Main App
+  </button>
+  </a>
+`);
+});
 app.use("/api/search", searchRouter);
 
 app.listen(PORT, () => {
