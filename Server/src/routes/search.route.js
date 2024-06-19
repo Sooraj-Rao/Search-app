@@ -15,15 +15,22 @@ router.get("/", async (req, res) => {
         ],
       };
     }
-
     const results = await Product.find(query);
-
-    res.json(results);
+    if (results.length == 0)
+      res.json({
+        error: true,
+        message: "No products found",
+        result: results,
+      });
+    else res.json({ result: results, error: false, message: "success" });
   } catch (error) {
     console.error("Error searching:", error);
-    res
-      .status(500)
-      .json({ error: "Internal Server Error", details: error.message });
+    res.json({
+      error: true,
+      message: "Internal Server Error",
+      result: null,
+      statusCode: 500,
+    });
   }
 });
 
